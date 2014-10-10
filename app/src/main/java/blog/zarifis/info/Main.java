@@ -1,0 +1,64 @@
+package blog.zarifis.info;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.webkit.WebView;
+
+/**
+ * Created by Costas Zarifis on 10/9/14.
+ */
+public class Main extends Activity {
+    private WebView webView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+
+
+
+        setContentView(R.layout.activity_main);
+        webView = (WebView) findViewById(R.id.webView1);
+        if (savedInstanceState != null)
+            webView.restoreState(savedInstanceState);
+
+
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new MyAppWebViewClient());
+        webView.loadUrl("http://blog.zarifis.info");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        webView.saveState(outState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+}
