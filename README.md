@@ -21,7 +21,3 @@ Screenshots
 
 ![](images/device-2014-10-09-190600.png)
 
-![](images/Screenshot_2014-10-09-18-36-38.png)
-
-
-![](images/Screenshot_2014-10-09-18-47-39.png)
